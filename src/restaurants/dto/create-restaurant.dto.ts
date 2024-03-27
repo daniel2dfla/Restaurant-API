@@ -1,5 +1,6 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsNumber, IsPhoneNumber, IsString } from "class-validator";
-import { Category } from "../schemas/restaurant.schema";
+import { IsEmail, IsEmpty, IsEnum, IsNotEmpty, IsNumber, IsPhoneNumber, IsString } from "class-validator";
+import { User } from "../../auth/schemas/user.schema";
+import { Category } from "../constants/enum-restaurants-category";
 
 export class CreateRestaurantDto {
     @IsNotEmpty()
@@ -28,6 +29,9 @@ export class CreateRestaurantDto {
 
     @IsNumber()
     readonly cep: number;
+
+    @IsEmpty({ message: "You cannot provide the user ID." })
+    readonly user: User
 
     //readonly image?: object[];
 }
