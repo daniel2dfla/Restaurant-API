@@ -9,9 +9,7 @@ import { RestaurantsModule } from '../restaurants/restaurants.module';
 @Module({
   imports:[
     AuthModule,
-    MongooseModule.forFeature([
-      { name: 'Meal', schema: MealSchema }
-    ]),
+    MongooseModule.forFeature([{ name: 'Meal', schema: MealSchema }]),
     RestaurantsModule
   ],
   controllers: [MealController],
